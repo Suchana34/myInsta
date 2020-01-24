@@ -42,10 +42,10 @@ export default class SignUp extends React.Component {
   async loginwithfacebook () {
 
       
-    Facebook.initializeAsync('2509115979215233');
+    Facebook.initializeAsync('APP ID');
     
     const{type, token} = await Facebook.logInWithReadPermissionsAsync(
-      '2509115979215233',
+      'APP ID',
       { permissions: ['public_Profile']}
     );
     if (type==='success'){
