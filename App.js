@@ -6,8 +6,9 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import {f,auth,data} from './config/config';
+import {f,auth,database, storage} from './config/config';
 import * as Facebook from 'expo-facebook';
+import screen from './screens';
 
 export default class SignUp extends React.Component {
   constructor(props) {
@@ -17,7 +18,6 @@ export default class SignUp extends React.Component {
       email: "",
       password: ""
     };*/
-
 
     this.state = {
       loggedin: false,
@@ -59,7 +59,7 @@ export default class SignUp extends React.Component {
 
   SignUp(email, password) {
     try {
-          auth.createUserWithEmailAndPassword(email, password).then(user => {console.log(user);});
+          auth.createUserWithEmailAndPassword(email, password).then(user => {console.log(email, password, user);});
     } catch (error) {
       alert(error.toString(error));
     }
@@ -147,6 +147,9 @@ export default class SignUp extends React.Component {
         </View>
       )
       }
+      </View>
+      <View>
+        <screen></screen>
       </View>
     )
   }
